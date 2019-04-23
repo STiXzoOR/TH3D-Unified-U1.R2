@@ -19,7 +19,7 @@
 *
 * STEP 2:
 * Uncomment the printer you want to flash. The printers are sorted A-Z by brand name.
-* If you are using the CR-10S DUAL board with the Ender 3 then read the specific section below on how to do this.
+* If you are using the Creality Dual board with the Ender 3/Ender 5/CR-20 then read the specific section below in that printer section on how to do this.
 *
 * STEP 3: 
 * Select the COM port your printer is on from the Tools menu. If you do not see the COM port try
@@ -146,6 +146,18 @@
 
 // EZABL Probe Mounts - Bootscreen will be disabled when enabling EZABL on the Anet Boards due to space issues
 //#define ANET_OEM
+//#define CUSTOM_PROBE
+
+//===========================================================================
+// ***********************   COPYMASTER PRINTERS    *************************
+//===========================================================================
+
+//===========================================================================
+// Copymaster 3D 300 Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define COPYMASTER3D_300
+
+// EZABL Probe Mounts
 //#define CUSTOM_PROBE
 
 //===========================================================================
@@ -585,6 +597,13 @@
 // If you are using a dual hotend with dual nozzles uncomment the below line
 //#define DUAL_HOTEND_DUAL_NOZZLES
 
+// While recommend the 12864 LCD we carry as it has a SD slot you can use a CR-10/Ender 3/Ender 5 LCD connected to EXP1 (rotate 180 degrees instead of aligning the pin)
+// Uncomment the below line to use the single cable Creality (Melzi) LCD instead of a standard 12864 LCD
+//#define CR10_STOCKDISPLAY
+
+// If your lcd knob moves the wrong direction uncomment the below line to reverse it
+//#define MKS_KNOB_REVERSE
+
 //===========================================================================
 // *************************  END PRINTER SECTION   *************************
 //===========================================================================
@@ -763,9 +782,11 @@
 // and then enter your probe offsets in the CUSTOM_PROBE section above. The Pin 27 boards on eBay are clones of our original EZOut. If you want to 
 // support the people that originally came up with the board you can get our EZOut breakout board here: http://EZOut.TH3DStudio.com
 // Sales from our shop allow us to allocate time for community firmware development at no charge to you. <3
+// If you have a V3 BL Touch also uncomment the BLTOUCH_V3 line to fix issues with the new V3 probe.
 //
 //#define BLTOUCH
-// Here is where you set your servo pin. EZOut Servo Pin Numbers: Others - 27, Ender 2 - 29. For 2560 boards look for the pin you connected the servo wire to and enter below.
+//#define BLTOUCH_V3
+// Here is where you set your servo pin. EZOut Servo Pin Numbers: Ender3/5/CR-10 - 27, Ender 2 - 29. For 2560 boards look for the pin you connected the servo wire to and enter below.
 //#define SERVO0_PIN 27
 //
 // NOTE: On 1284p boards due to space limitations and the large amount of code the BLTouch requires for the LCD Menus
@@ -809,6 +830,6 @@
 
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.10a"
+#define UNIFIED_VERSION "TH3D U1.R2.11"
 
 #endif // CONFIGURATION_H

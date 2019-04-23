@@ -1,5 +1,7 @@
 **TH3D Unified Firmware with changes for my custom machines**
 
+**The issues queue has been disabled as some people do not understand it's for firmware problems and not technical support.**
+
 ----------
 
 This firmware is NOT maintained by TH3D. This is meant to be a personal fork/branch that will never be merged back to TH3D Unified Firmware.
