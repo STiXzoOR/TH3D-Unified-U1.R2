@@ -134,6 +134,7 @@
 //#define ANET_A8
 //#define ANET_E10
 //#define ANET_E12
+//#define ANET_E16
 
 // Choose bed size for A2 only
 // IGNORE THESE OPTIONS FOR MACHINES OTHER THAN THE A2
@@ -146,18 +147,6 @@
 
 // EZABL Probe Mounts - Bootscreen will be disabled when enabling EZABL on the Anet Boards due to space issues
 //#define ANET_OEM
-//#define CUSTOM_PROBE
-
-//===========================================================================
-// ***********************   COPYMASTER PRINTERS    *************************
-//===========================================================================
-
-//===========================================================================
-// Copymaster 3D 300 Options - Select 'Arduino Mega 2560' from Tools > Board
-//===========================================================================
-//#define COPYMASTER3D_300
-
-// EZABL Probe Mounts
 //#define CUSTOM_PROBE
 
 //===========================================================================
@@ -186,6 +175,9 @@
 //#define TM3DAERO_EXTENDED
 //#define PETSFANG //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
+
+// TMC2208 Creality Board Setting - uncomment this to set the driver type if you are using the TMC Creality board
+//#define TMC_CREALITY_BOARD
 
 //===========================================================================
 // Creality CR-10S Options - Select 'Arduino Mega 2560' from Tools > Board
@@ -306,6 +298,9 @@
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
 
+// TMC2208 Creality Board Setting - uncomment this to set the driver type if you are using the TMC Creality board
+//#define TMC_CREALITY_BOARD
+
 //=================================================================================================
 // README - THE BELOW SETTINGS ARE ONLY FOR USING THE CR-10S DUAL BOARD WITH THE ENDER 3
 // DO NOT UNCOMMENT THE ABOVE #define ENDER3 LINE IF USING THE DUAL BOARD
@@ -368,6 +363,9 @@
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
 //#define CUSTOM_PROBE
 
+// TMC2208 Creality Board Setting - uncomment this to set the driver type if you are using the TMC Creality board
+//#define TMC_CREALITY_BOARD
+
 //=================================================================================================
 // README - THE BELOW SETTINGS ARE ONLY FOR USING THE CR-10S DUAL BOARD WITH THE ENDER 5
 // DO NOT UNCOMMENT THE ABOVE #define ENDER5 LINE IF USING THE DUAL BOARD
@@ -421,11 +419,40 @@
 // Geeetech A10 Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
 // A10 V1 has the 40mm Fan on the left side of the hotend and NO filament sensor
-// A10 V2 has a filament sensor and no 40mm fan on the left side of the hotend (support coming soon)
+// A10 V2 has a filament sensor and no 40mm fan on the left side of the hotend
 //#define GEEETECH_A10_V1
+//#define GEEETECH_A10_V2
 
 // EZABL Probe Mounts
 //#define GEE_A10_V1_OEM
+//#define GEE_A10_V2_OEM
+//#define CUSTOM_PROBE
+
+//===========================================================================
+// Geeetech A10M Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define GEEETECH_A10M
+
+// EZABL Probe Mounts - uses the same mounts as the Geetech A10 V2
+//#define GEE_A10_V2_OEM
+//#define CUSTOM_PROBE
+
+//===========================================================================
+// Geeetech A20 Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define GEEETECH_A20
+
+// EZABL Probe Mounts - uses the same mounts as the Geetech A10 V2
+//#define GEE_A10_V2_OEM
+//#define CUSTOM_PROBE
+
+//===========================================================================
+// Geeetech A20M Options - Select 'Arduino Mega 2560' from Tools > Board
+//===========================================================================
+//#define GEEETECH_A20M
+
+// EZABL Probe Mounts - uses the same mounts as the Geetech A10 V2
+//#define GEE_A10_V2_OEM
 //#define CUSTOM_PROBE
 
 //===========================================================================
@@ -540,8 +567,9 @@
 // ***********************  MKS Gen L Based Printer   ***********************
 // *************  Select 'Arduino Mega 2560' from Tools > Board *************
 // **** Please refer to the TH3D MKS Gen L Documentation Guide for Setup ****
-// **** Endstop/Motors: changing from 0 to 1 inverts the logic/direction ****
-// ********** TH3D MKS Gen L Documentation Coming end of April 2019 *********
+// *Endstop/Motors/Homing: changing from 0 to 1 inverts the logic/direction *
+// ****** We have a detailed guide here: http://mksguide.th3dstudio.com *****
+// ******** Use the code GENLGUIDEHALFOFF for 50% off our PDF Guide *********
 //===========================================================================
 
 //#define MKS_PRINTER
@@ -555,6 +583,10 @@
 #define MKS_X_ENDSTOP 0
 #define MKS_Y_ENDSTOP 0
 #define MKS_Z_ENDSTOP 0
+
+// Homing Settings
+#define X_HOME_LOCATION 0
+#define Y_HOME_LOCATION 0
 
 // Steps per MM Settings
 #define MKS_X_STEPS 80
@@ -633,6 +665,10 @@
 
 // Heaters will stay on during probing - only use if directed to by support. Do not use on AC beds.
 //#define HEATERS_ON_DURING_PROBING
+
+// Letting the bed heat recover between probes can increase accuracy due to the bed warping during cooling/heating
+// Enabling the below option will let the bed get back to temperature during probing but will increase probing times.
+//#define WAIT_FOR_BED_HEATER
 
 // If you want a more granular control over the babystepping uncomment the below line.
 // This will make the adjustment finer than the standard setting.
@@ -721,6 +757,11 @@
 //#define KNOWN_BED_THERMISTOR
 //#define KNOWN_BED_THERMISTOR_VALUE X
 
+// If you want to make thermal protection periods less or more adjust below. The number is in seconds.
+// If you are getting false thermal runaway then increase the protection time. Do not make it over 300 for either setting.
+#define HOTEND_THERMAL_PROTECTION_TIME 60
+#define BED_THERMAL_PROTECTION_TIME 180
+
 // BED SETTINGS ------------------------------------
 
 // If you want PID tuning on your bed you can enable the below line. But PID on a bed is not typically needed. By default BED PID is disabled.
@@ -806,10 +847,11 @@
 //#define POWER_LOSS_RECOVERY
 
 // MOTION SETTINGS ---------------------------------
-// If you do not like the new Junction Deviation (Jerk) and/or S-Curve Acceleration then you can uncomment the below lines to disable each feature.
+// There are 2 new acceleration/jerk controls available in this firmware that can result is better print quality and
+// smoother movement. To try each out just enable them below.
 // Due to Anet board restrictions this is always disabled on those machines.
-//#define JUNCTION_DEVIATION_DISABLE
-//#define S_CURVE_ACCELERATION_DISABLE
+//#define JUNCTION_DEVIATION_ON
+//#define S_CURVE_ACCELERATION_ON
 
 //================================================================================================
 // Language - This is provided for convenience and is unsupported with included product support.
@@ -828,8 +870,9 @@
 
 #define LCD_LANGUAGE en
 
+#include "Configuration_beta.h"
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.11"
+#define UNIFIED_VERSION "TH3D U1.R2.13"
 
 #endif // CONFIGURATION_H
