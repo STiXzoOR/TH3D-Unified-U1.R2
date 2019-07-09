@@ -233,8 +233,8 @@
   #define REVERSE_MENU_DIRECTION
   
   #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_LOCATION
-    #define Y_MIN_POS Y_HOME_LOCATION
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
     #define X_MIN_POS 0
     #define Y_MIN_POS 0
@@ -451,8 +451,8 @@
   #define Z_MAX_POS 310
 
   #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_LOCATION
-    #define Y_MIN_POS Y_HOME_LOCATION
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
     #define X_MIN_POS 0
     #define Y_MIN_POS 0
@@ -520,8 +520,8 @@
   #define Z_MAX_POS 420
 
   #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_LOCATION
-    #define Y_MIN_POS Y_HOME_LOCATION
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
     #define X_MIN_POS -6
     #define Y_MIN_POS 0
@@ -587,8 +587,8 @@
   #define Z_MAX_POS 420
 
   #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_LOCATION
-    #define Y_MIN_POS Y_HOME_LOCATION
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
     #define X_MIN_POS 0
     #define Y_MIN_POS 0
@@ -666,8 +666,8 @@
   #define Z_MAX_POS 410
   
   #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_LOCATION
-    #define Y_MIN_POS Y_HOME_LOCATION
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
     #define X_MIN_POS 0
     #define Y_MIN_POS 0
@@ -744,8 +744,8 @@
   #define Z_MAX_POS 400
   
   #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_LOCATION
-    #define Y_MIN_POS Y_HOME_LOCATION
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
     #define X_MIN_POS 0
     #define Y_MIN_POS 0
@@ -829,8 +829,8 @@
   #define Z_MAX_POS 300
   
   #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_LOCATION
-    #define Y_MIN_POS Y_HOME_LOCATION
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
     #define X_MIN_POS 0
     #define Y_MIN_POS 0
@@ -930,8 +930,8 @@
   #endif
   
   #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_LOCATION
-    #define Y_MIN_POS Y_HOME_LOCATION
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
     #define X_MIN_POS -7
     #define Y_MIN_POS -5
@@ -1004,8 +1004,8 @@
   #define Z_MAX_POS 380
   
   #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_LOCATION
-    #define Y_MIN_POS Y_HOME_LOCATION
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
     #define X_MIN_POS 0
     #define Y_MIN_POS 0
@@ -1075,8 +1075,8 @@
   #define Z_MAX_POS 170
 
   #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_LOCATION
-    #define Y_MIN_POS Y_HOME_LOCATION
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
     #define X_MIN_POS 0
     #define Y_MIN_POS 0
@@ -1138,8 +1138,8 @@
   #define Z_MAX_POS 500
 
   #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_LOCATION
-    #define Y_MIN_POS Y_HOME_LOCATION
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
     #define X_MIN_POS 0
     #define Y_MIN_POS 0
@@ -1206,8 +1206,8 @@
   #define Z_MAX_POS 100
 
   #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_LOCATION
-    #define Y_MIN_POS Y_HOME_LOCATION
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
     #define X_MIN_POS 0
     #define Y_MIN_POS 0
@@ -1277,8 +1277,8 @@
   #define Z_MAX_POS 180
 
   #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_LOCATION
-    #define Y_MIN_POS Y_HOME_LOCATION
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
     #define X_MIN_POS 0
     #define Y_MIN_POS 0
@@ -1420,8 +1420,8 @@
   #endif
 
   #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_LOCATION
-    #define Y_MIN_POS Y_HOME_LOCATION
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
     #define X_MIN_POS 0
     #define Y_MIN_POS 0
@@ -1583,8 +1583,8 @@
   #endif
 
   #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_LOCATION
-    #define Y_MIN_POS Y_HOME_LOCATION
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
     #define X_MIN_POS 0
     #define Y_MIN_POS 0
@@ -1650,8 +1650,8 @@
   #endif
 
   #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_LOCATION
-    #define Y_MIN_POS Y_HOME_LOCATION
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
     #define X_MIN_POS 0
     #define Y_MIN_POS 0
@@ -1710,8 +1710,8 @@
   #endif
 
   #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_LOCATION
-    #define Y_MIN_POS Y_HOME_LOCATION
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
     #define X_MIN_POS 0
     #define Y_MIN_POS 0
@@ -1773,8 +1773,8 @@
   #endif
 
   #if ENABLED(HOME_ADJUST)
-    #define X_MIN_POS X_HOME_LOCATION
-    #define Y_MIN_POS Y_HOME_LOCATION
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
     #define X_MIN_POS 0
     #define Y_MIN_POS 0
@@ -1854,8 +1854,8 @@
   
   #if ENABLED(A2_SMALL_BED)   
     #if ENABLED(HOME_ADJUST)
-      #define X_MIN_POS X_HOME_LOCATION
-      #define Y_MIN_POS Y_HOME_LOCATION
+      #define X_MIN_POS X_HOME_ADJUST_LOCATION
+      #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
     #else
       #define X_MIN_POS 0
       #define Y_MIN_POS 0
@@ -1884,8 +1884,8 @@
 
 #if ENABLED(A2_LARGE_BED)
     #if ENABLED(HOME_ADJUST)
-      #define X_MIN_POS X_HOME_LOCATION
-      #define Y_MIN_POS Y_HOME_LOCATION
+      #define X_MIN_POS X_HOME_ADJUST_LOCATION
+      #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
     #else
       #define X_MIN_POS 0
       #define Y_MIN_POS 0
@@ -1913,8 +1913,8 @@
 
 #if ENABLED(ANET_A6)
     #if ENABLED(HOME_ADJUST)
-      #define X_MIN_POS X_HOME_LOCATION
-      #define Y_MIN_POS Y_HOME_LOCATION
+      #define X_MIN_POS X_HOME_ADJUST_LOCATION
+      #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
     #else
       #define X_MIN_POS 0
       #define Y_MIN_POS 0
@@ -1943,8 +1943,8 @@
 
 #if ENABLED(ANET_A8)
   #if ENABLED(HOME_ADJUST)
-     #define X_MIN_POS X_HOME_LOCATION
-     #define Y_MIN_POS Y_HOME_LOCATION
+     #define X_MIN_POS X_HOME_ADJUST_LOCATION
+     #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
   #else
      #define X_MIN_POS -33
      #define Y_MIN_POS -10
@@ -1975,8 +1975,8 @@
 
 #if ENABLED(ANET_E10)
     #if ENABLED(HOME_ADJUST)
-      #define X_MIN_POS X_HOME_LOCATION
-      #define Y_MIN_POS Y_HOME_LOCATION
+      #define X_MIN_POS X_HOME_ADJUST_LOCATION
+      #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
     #else
       #define X_MIN_POS -2
       #define Y_MIN_POS -8
@@ -2005,8 +2005,8 @@
 
 #if ENABLED(ANET_E12)
     #if ENABLED(HOME_ADJUST)
-      #define X_MIN_POS X_HOME_LOCATION
-      #define Y_MIN_POS Y_HOME_LOCATION
+      #define X_MIN_POS X_HOME_ADJUST_LOCATION
+      #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
     #else
       #define X_MIN_POS -2
       #define Y_MIN_POS -8

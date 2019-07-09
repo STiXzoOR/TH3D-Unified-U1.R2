@@ -134,7 +134,6 @@
 //#define ANET_A8
 //#define ANET_E10
 //#define ANET_E12
-//#define ANET_E16
 
 // Choose bed size for A2 only
 // IGNORE THESE OPTIONS FOR MACHINES OTHER THAN THE A2
@@ -801,13 +800,13 @@
 //===========================================================================
 
 // HOME OFFSET ADJUSTMENT --------------------------
-// If you need to adjust your XY home offsets from defaults then you can uncomment the HOME_ADJUST line below and enter your
+// If you need to adjust your XY home offsets from defaults then you can uncomment the HOME_ADJUST_LOCATION line below and enter your
 // custom XY offsets. This is provided for convenience and is unsupported with included product support.
 // How to use - measure (home XY then jog using the LCD 1mm at a time) the X and Y distance the nozzle is off
 // the build plate and then put those as NEGATIVE values below, positive values will NOT work (move your endstops to fix a positve offset).
 //#define HOME_ADJUST
-#define X_HOME_LOCATION -10
-#define Y_HOME_LOCATION -10
+#define X_HOME_ADJUST_LOCATION -10
+#define Y_HOME_ADJUST_LOCATION -10
 
 // LINEAR ADVANCE ----------------------------------
 // See here on how to use Linear Advance: http://marlinfw.org/docs/features/lin_advance.html
@@ -873,6 +872,6 @@
 #include "Configuration_beta.h"
 #include "Configuration_backend.h"
 
-#define UNIFIED_VERSION "TH3D U1.R2.13"
+#define UNIFIED_VERSION "TH3D U1.R2.14"
 
 #endif // CONFIGURATION_H
