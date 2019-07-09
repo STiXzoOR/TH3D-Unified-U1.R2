@@ -21,10 +21,6 @@
   #endif
   #define BAUDRATE 250000
   
-  #define E0_AUTO_FAN_PIN 7
-  #define EXTRUDER_AUTO_FAN_TEMPERATURE 40
-  #define EXTRUDER_AUTO_FAN_SPEED   255
-  
   #define BLTOUCH
   #define SPEAKER_KILL
   #define PETSFANG
@@ -107,9 +103,6 @@
   #endif
   #define BAUDRATE 250000
   
-  #define E0_AUTO_FAN_PIN 7
-  #define EXTRUDER_AUTO_FAN_TEMPERATURE 40
-  #define EXTRUDER_AUTO_FAN_SPEED   255
   #define Z_DUAL_STEPPER_DRIVERS
 
   #define BLTOUCH
