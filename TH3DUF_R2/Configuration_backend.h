@@ -11,7 +11,7 @@
 
 #if DISABLED(TH3DINHOUSEMACHINE)
   #if DISABLED(MKS_PRINTER)
-    #if ENABLED(TMC_CREALITY_BOARD)
+    #if ENABLED(TMC_CREALITY_BOARD) || ENABLED(CR10S_PRO) || ENABLED(CR10_V2)
       #define X_DRIVER_TYPE  TMC2208_STANDALONE
       #define Y_DRIVER_TYPE  TMC2208_STANDALONE
       #define Z_DRIVER_TYPE  TMC2208_STANDALONE
@@ -42,9 +42,16 @@
 //Sensor Mounts
 #if ENABLED(CUSTOM_PROBE)
   #define EZABL_ENABLE
-  #if ENABLED(ANET_A2) || ENABLED(ANET_A6) || ENABLED(ANET_A8) || ENABLED(ANET_E10) || ENABLED(ANET_E12)
-    #define DISABLE_BOOT
-  #endif
+#endif
+#if ENABLED(CR10V2_OEM)
+  #define EZABL_ENABLE
+  #define X_PROBE_OFFSET_FROM_EXTRUDER 52
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER 5
+#endif
+#if ENABLED(CR10S_PRO_OEM)
+  #define EZABL_ENABLE
+  #define X_PROBE_OFFSET_FROM_EXTRUDER -27
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER 0
 #endif
 #if ENABLED(WANHAO_I3_PLUS_EZABL)
   #define ADVi3PP_PROBE
@@ -186,8 +193,144 @@
 #endif
 #if ENABLED(ANET_OEM)
   #define EZABL_ENABLE
-  #define DISABLE_BOOT
 #endif
+
+//CR-10 V2 Settings
+#if ENABLED(CR10_V2)
+  #ifndef MOTHERBOARD
+    #define MOTHERBOARD BOARD_CR10S
+  #endif
+  
+  #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+  
+  #define BAUDRATE 115200
+
+  #define X_MIN_ENDSTOP_INVERTING false
+  #define Y_MIN_ENDSTOP_INVERTING false
+  #define Z_MIN_ENDSTOP_INVERTING false
+  #define X_MAX_ENDSTOP_INVERTING false
+  #define Y_MAX_ENDSTOP_INVERTING false
+  #define Z_MAX_ENDSTOP_INVERTING false
+  #define Z_MIN_PROBE_ENDSTOP_INVERTING false
+  
+  #if ENABLED(TITAN_EXTRUDER)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #else
+    #if ENABLED(CUSTOM_ESTEPS)
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
+    #else
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
+    #endif
+  #endif
+  
+  #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 50 }
+  #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 100, 1000 }
+
+  #define DEFAULT_ACCELERATION          500    
+  #define DEFAULT_RETRACT_ACCELERATION  1000   
+  #define DEFAULT_TRAVEL_ACCELERATION   500    
+  
+  #define DEFAULT_XJERK                  8.0
+  #define DEFAULT_YJERK                  8.0
+  #define DEFAULT_ZJERK                  0.4
+  #define DEFAULT_EJERK                  5.0
+  
+  #define INVERT_X_DIR false
+  #define INVERT_Y_DIR false
+  #define INVERT_Z_DIR true
+  
+  #if ENABLED(TITAN_EXTRUDER)
+    #define INVERT_E0_DIR true
+  #else
+    #define INVERT_E0_DIR false
+  #endif
+
+  #define X_BED_SIZE 300
+  #define Y_BED_SIZE 300
+  #define Z_MAX_POS 400
+  
+  #if ENABLED(HOME_ADJUST)
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
+  #else
+    #define X_MIN_POS 0
+    #define Y_MIN_POS 0
+  #endif
+  
+  #define PRINTER_ENABLED_CHECK
+#endif //end cr-10 v2 settings
+
+//CR-10S Pro Settings
+#if ENABLED(CR10S_PRO)
+  #ifndef MOTHERBOARD
+    #define MOTHERBOARD BOARD_CR10S
+  #endif
+  
+  #if ENABLED(RR_LCD_UPGRADE)
+    #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+  #endif
+  
+  #define BAUDRATE 115200
+
+  #define X_MIN_ENDSTOP_INVERTING false
+  #define Y_MIN_ENDSTOP_INVERTING false
+  #define Z_MIN_ENDSTOP_INVERTING false
+  #define X_MAX_ENDSTOP_INVERTING false
+  #define Y_MAX_ENDSTOP_INVERTING false
+  #define Z_MAX_ENDSTOP_INVERTING false
+  #define Z_MIN_PROBE_ENDSTOP_INVERTING false
+  
+  #if ENABLED(TITAN_EXTRUDER)
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, TITAN_EXTRUDER_STEPS }
+  #else
+    #if ENABLED(CUSTOM_ESTEPS)
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, CUSTOM_ESTEPS_VALUE }
+    #else
+      #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 140 }
+    #endif
+  #endif
+  
+  #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 50 }
+  #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 100, 1000 }
+
+  #define DEFAULT_ACCELERATION          500    
+  #define DEFAULT_RETRACT_ACCELERATION  1000   
+  #define DEFAULT_TRAVEL_ACCELERATION   500    
+  
+  #define DEFAULT_XJERK                  8.0
+  #define DEFAULT_YJERK                  8.0
+  #define DEFAULT_ZJERK                  0.4
+  #define DEFAULT_EJERK                  5.0
+  
+  #define INVERT_X_DIR false
+  #define INVERT_Y_DIR true
+  #define INVERT_Z_DIR true
+  
+  #if ENABLED(TITAN_EXTRUDER)
+    #define INVERT_E0_DIR true
+  #else
+    #define INVERT_E0_DIR false
+  #endif
+
+  #define X_BED_SIZE 300
+  #define Y_BED_SIZE 300
+  #define Z_MAX_POS 400
+  
+  #define REVERSE_ENCODER_DIRECTION
+  
+  #if ENABLED(HOME_ADJUST)
+    #define X_MIN_POS X_HOME_ADJUST_LOCATION
+    #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
+  #else
+    #define X_MIN_POS 0
+    #define Y_MIN_POS 0
+  #endif
+  
+  #define ENCODER_PULSES_PER_STEP 1
+  #define ENCODER_STEPS_PER_MENU_ITEM 5
+  
+  #define PRINTER_ENABLED_CHECK
+#endif //end cr-10s pro settings
 
 //Wanhao i3 Plus Settings
 #if ENABLED(WANHAO_I3_PLUS)
@@ -346,7 +489,13 @@
   #define BAUDRATE 250000
   
   #if DISABLED(CR10_STOCKDISPLAY)
-    #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+    #if DISABLED(REPRAP_DISCOUNT_SMART_CONTROLLER)
+      #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+    #endif
+  #endif
+
+  #if ENABLED(REPRAP_DISCOUNT_SMART_CONTROLLER)
+    #define LCD2004
   #endif
   
   #define ENCODER_PULSES_PER_STEP 4
@@ -1941,7 +2090,7 @@
 #endif //end taz5
 
 //ANET Model Settings
-#if ENABLED(ANET_A2) || ENABLED(ANET_A6) || ENABLED(ANET_A8) || ENABLED(ANET_E10) || ENABLED(ANET_E12) || ENABLED(ANET_E16)
+#if ENABLED(ANET_A2) || ENABLED(ANET_A6) || ENABLED(ANET_A8) || ENABLED(ANET_E10) || ENABLED(ANET_E12) || ENABLED(ANET_E16) || ENABLED(ANET_A8_PLUS)
   #define SLIM_1284P
   
   #define ANET_PRINTER
@@ -1993,19 +2142,28 @@
   #define DEFAULT_ZJERK                  0.4
   #define DEFAULT_EJERK                  5.0
   
-  #if ENABLED(ANET_LCD2004)
-    #define ZONESTAR_LCD
-    #define LCD2004
-  #endif
-  #if ENABLED(ANET_LCD12864)
-    #define ANET_FULL_GRAPHICS_LCD
+  #if ENABLED(ANET_LCD2004) || ENABLED(ANET_LCD12864)
+    #if ENABLED(ANET_LCD2004)
+      #define ZONESTAR_LCD
+      #define LCD2004
+    #endif
+    #if ENABLED(ANET_LCD12864)
+      #define ANET_FULL_GRAPHICS_LCD
+    #endif
+  #else
+    #if ENABLED(ANET_A2) || ENABLED(ANET_A8)
+      #define ZONESTAR_LCD
+      #define LCD2004
+    #else
+      #define ANET_FULL_GRAPHICS_LCD
+    #endif
   #endif
 
   #define Z_MIN_POS 0
   #define X_MAX_POS X_BED_SIZE
   #define Y_MAX_POS Y_BED_SIZE
   
-  #if ENABLED(A2_SMALL_BED)   
+  #if ENABLED(ANET_A2) && DISABLED(A2_LARGE_BED)   
     #if ENABLED(HOME_ADJUST)
       #define X_MIN_POS X_HOME_ADJUST_LOCATION
       #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
@@ -2030,12 +2188,12 @@
     #define INVERT_Z_DIR false
     #if ENABLED(TITAN_EXTRUDER)
       #define INVERT_E0_DIR true
-	#else
+    #else
       #define INVERT_E0_DIR false
     #endif 
-#endif
+  #endif
 
-#if ENABLED(A2_LARGE_BED)
+  #if ENABLED(ANET_A2) && ENABLED(A2_LARGE_BED)
     #if ENABLED(HOME_ADJUST)
       #define X_MIN_POS X_HOME_ADJUST_LOCATION
       #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
@@ -2062,9 +2220,9 @@
 	#else
       #define INVERT_E0_DIR false
     #endif
-#endif
+  #endif
 
-#if ENABLED(ANET_A6)
+  #if ENABLED(ANET_A6)
     #if ENABLED(HOME_ADJUST)
       #define X_MIN_POS X_HOME_ADJUST_LOCATION
       #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
@@ -2089,44 +2247,76 @@
     #define INVERT_Z_DIR true
     #if ENABLED(TITAN_EXTRUDER)
       #define INVERT_E0_DIR true
-	#else
+    #else
       #define INVERT_E0_DIR false
     #endif
-#endif
 
-#if ENABLED(ANET_A8)
-  #if ENABLED(HOME_ADJUST)
-     #define X_MIN_POS X_HOME_ADJUST_LOCATION
-     #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
-  #else
-     #define X_MIN_POS -33
-     #define Y_MIN_POS -10
   #endif
-  
-  #define DIRECT_DRIVE_PRINTER
+  #if ENABLED(ANET_A8)
+    #if ENABLED(HOME_ADJUST)
+       #define X_MIN_POS X_HOME_ADJUST_LOCATION
+       #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
+    #else
+       #define X_MIN_POS -33
+       #define Y_MIN_POS -10
+    #endif
     
-  #define X_BED_SIZE 220
-  #define Y_BED_SIZE 220
-  #define Z_MAX_POS 240
+    #define DIRECT_DRIVE_PRINTER
+      
+    #define X_BED_SIZE 220
+    #define Y_BED_SIZE 220
+    #define Z_MAX_POS 240
+      
+    #if ENABLED(ANET_OEM)
+      #define X_PROBE_OFFSET_FROM_EXTRUDER -26
+      #define Y_PROBE_OFFSET_FROM_EXTRUDER -40
+    #endif
+     
+    #define INVERT_X_DIR false
+    #define INVERT_Y_DIR false
+    #define INVERT_Z_DIR true
     
-  #if ENABLED(ANET_OEM)
-    #define X_PROBE_OFFSET_FROM_EXTRUDER -26
-    #define Y_PROBE_OFFSET_FROM_EXTRUDER -40
-  #endif
-   
-  #define INVERT_X_DIR false
-  #define INVERT_Y_DIR false
-  #define INVERT_Z_DIR true
-  
-  #if ENABLED(TITAN_EXTRUDER)
-    #define INVERT_E0_DIR true
-  #else
-    #define INVERT_E0_DIR false
+    #if ENABLED(TITAN_EXTRUDER)
+      #define INVERT_E0_DIR true
+    #else
+      #define INVERT_E0_DIR false
+    #endif
+    
   #endif
   
-#endif
+  #if ENABLED(ANET_A8_PLUS)
+    #if ENABLED(HOME_ADJUST)
+       #define X_MIN_POS X_HOME_ADJUST_LOCATION
+       #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
+    #else
+       #define X_MIN_POS -21
+       #define Y_MIN_POS -7
+    #endif
+    
+    #define DIRECT_DRIVE_PRINTER
+      
+    #define X_BED_SIZE 300
+    #define Y_BED_SIZE 300
+    #define Z_MAX_POS 350
+      
+    #if ENABLED(ANET_OEM)
+      #define X_PROBE_OFFSET_FROM_EXTRUDER -24
+      #define Y_PROBE_OFFSET_FROM_EXTRUDER -45
+    #endif
+     
+    #define INVERT_X_DIR true
+    #define INVERT_Y_DIR true
+    #define INVERT_Z_DIR true
+    
+    #if ENABLED(TITAN_EXTRUDER)
+      #define INVERT_E0_DIR true
+    #else
+      #define INVERT_E0_DIR false
+    #endif
+    
+  #endif
 
-#if ENABLED(ANET_E10)
+  #if ENABLED(ANET_E10)
     #if ENABLED(HOME_ADJUST)
       #define X_MIN_POS X_HOME_ADJUST_LOCATION
       #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
@@ -2150,13 +2340,13 @@
 	
     #if ENABLED(TITAN_EXTRUDER)
       #define INVERT_E0_DIR false
-	#else
+    #else
       #define INVERT_E0_DIR true
     #endif
 	
-#endif
+  #endif
 
-#if ENABLED(ANET_E12)
+  #if ENABLED(ANET_E12)
     #if ENABLED(HOME_ADJUST)
       #define X_MIN_POS X_HOME_ADJUST_LOCATION
       #define Y_MIN_POS Y_HOME_ADJUST_LOCATION
@@ -2182,9 +2372,9 @@
     #else
       #define INVERT_E0_DIR true
     #endif
-#endif
+  #endif
 
-#define PRINTER_ENABLED_CHECK
+  #define PRINTER_ENABLED_CHECK
   
 #endif //End ANET model settings
 
@@ -2331,6 +2521,8 @@
       #else
         #define TEMP_SENSOR_BED 1
       #endif
+    #elif ENABLED(ANET_PRINTER)
+      #define TEMP_SENSOR_BED 1
     #else
       #define TEMP_SENSOR_BED 5
     #endif
@@ -2543,9 +2735,7 @@
 
 #if ENABLED(S_CURVE_ACCELERATION_ON)
   #if DISABLED(POWER_LOSS_RECOVERY)
-    #if DISABLED(ANET_PRINTER)
-      #define S_CURVE_ACCELERATION
-    #endif
+    #define S_CURVE_ACCELERATION
   #endif
 #endif
 
@@ -2620,10 +2810,10 @@
   #define MAX_SOFTWARE_ENDSTOP_Z
 #endif
 
-#if ENABLED(EZOUT_ENABLE) || ENABLED(EZOUTV2_ENABLE) || (ENABLED(CR10S) && DISABLED(CR10S_NOFILAMENTSENSOR)) || (ENABLED(CR10S_MINI) && DISABLED(CR10S_NOFILAMENTSENSOR))  || (ENABLED(CR10S_S4) && DISABLED(CR10S_NOFILAMENTSENSOR)) || (ENABLED(CR10S_S5) && DISABLED(CR10S_NOFILAMENTSENSOR)) || ENABLED(ALFAWISE_U10) || ENABLED(ADIM_GANTRY_I3_PLUS) || ENABLED(ENDER4_FIL) || ENABLED(COPYMASTER3D_300) || ENABLED(GEEETECH_A10_V2) || ENABLED(GEEETECH_A20) || ENABLED(GEEETECH_A20M) || ENABLED(GEEETECH_A10M)
+#if ENABLED(EZOUT_ENABLE) || ENABLED(CR10_V2) || ENABLED(CR10S_PRO) || ENABLED(EZOUTV2_ENABLE) || (ENABLED(CR10S) && DISABLED(CR10S_NOFILAMENTSENSOR)) || (ENABLED(CR10S_MINI) && DISABLED(CR10S_NOFILAMENTSENSOR))  || (ENABLED(CR10S_S4) && DISABLED(CR10S_NOFILAMENTSENSOR)) || (ENABLED(CR10S_S5) && DISABLED(CR10S_NOFILAMENTSENSOR)) || ENABLED(ALFAWISE_U10) || ENABLED(ADIM_GANTRY_I3_PLUS) || ENABLED(ENDER4_FIL) || ENABLED(COPYMASTER3D_300) || ENABLED(GEEETECH_A10_V2) || ENABLED(GEEETECH_A20) || ENABLED(GEEETECH_A20M) || ENABLED(GEEETECH_A10M)
   #define FILAMENT_RUNOUT_SENSOR
   #if ENABLED(FILAMENT_RUNOUT_SENSOR)
-    #if ENABLED(EZOUT_ENABLE) || ENABLED(EZOUTV2_ENABLE) || ENABLED(ADIM_GANTRY_I3_PLUS)
+    #if ENABLED(EZOUT_ENABLE) || ENABLED(EZOUTV2_ENABLE) || ENABLED(ADIM_GANTRY_I3_PLUS) || ENABLED(CR10S_PRO) || ENABLED(CR10_V2)
       #define FIL_RUNOUT_INVERTING false
     #else
       #define FIL_RUNOUT_INVERTING true
