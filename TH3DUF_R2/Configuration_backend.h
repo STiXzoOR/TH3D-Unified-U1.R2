@@ -201,7 +201,6 @@
     #define MOTHERBOARD BOARD_ANET_10
   #endif
   
-  #define ANET_LCD2004
   #define ZONESTAR_LCD
   #define LCD2004
   
