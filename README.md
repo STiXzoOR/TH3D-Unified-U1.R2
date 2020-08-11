@@ -15,10 +15,6 @@ PROVIDED AS-IS. NO SUPPORT OR WARRANTY IS PROVIDED.**
 
 Based on [Marlin](http://marlinfw.org) 1.1.9 Stable with BugFixes and our own custom additions. 
 
-Highly customized and modified for easy use with stock printer boards or some aftermarket boards.
-
-If you have a custom machine it is best to use vanilla [Marlin](http://marlinfw.org).
-
 ----------
 
 **3rd Party Credits:**
