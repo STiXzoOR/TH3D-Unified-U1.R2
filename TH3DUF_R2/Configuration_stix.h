@@ -4,7 +4,7 @@
 
 // STIX Machines
 //#define STIX_ENDER3
-//#define STIX_A8
+#define STIX_A8
 
 #if ENABLED(STIX_ENDER3)
   #define TH3DINHOUSEMACHINE
@@ -104,6 +104,7 @@
   #define BAUDRATE 250000
   
   #define Z_DUAL_STEPPER_DRIVERS
+  //#define EZOUTV2_ENABLE
 
   #define BLTOUCH
   #define CUSTOM_PROBE
@@ -135,9 +136,9 @@
   #define X_MIN_ENDSTOP_INVERTING true
   #define Y_MIN_ENDSTOP_INVERTING true
   #define Z_MIN_ENDSTOP_INVERTING true
-  #define X_MAX_ENDSTOP_INVERTING true
-  #define Y_MAX_ENDSTOP_INVERTING true
-  #define Z_MAX_ENDSTOP_INVERTING true
+  #define X_MAX_ENDSTOP_INVERTING false
+  #define Y_MAX_ENDSTOP_INVERTING false
+  #define Z_MAX_ENDSTOP_INVERTING false
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true
 
   #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 98 }
@@ -162,7 +163,7 @@
   #define Y_BED_SIZE 220
 
   #define X_MIN_POS -17
-  #define Y_MIN_POS -7
+  #define Y_MIN_POS -4
   #define Z_MAX_POS 240
   
   #define ENCODER_PULSES_PER_STEP 4
