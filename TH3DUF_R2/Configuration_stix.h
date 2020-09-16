@@ -115,7 +115,7 @@
   #define HEATERS_ON_DURING_PROBING
   #define BABYSTEP_OFFSET
   
-  #define LINEAR_ADVANCE
+  // #define LINEAR_ADVANCE
   #define JUNCTION_DEVIATION_ON
   #define S_CURVE_ACCELERATION_ON
     
@@ -140,8 +140,8 @@
   #define Z_MIN_PROBE_ENDSTOP_INVERTING true
 
   #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 98 }
-  #define DEFAULT_MAX_FEEDRATE          { 500, 500, 15, 50 }
-  #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 500, 5000 }
+  #define DEFAULT_MAX_FEEDRATE          { 500, 500, 8, 50 }
+  #define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 100, 5000 }
   
   #define DEFAULT_ACCELERATION          500   
   #define DEFAULT_RETRACT_ACCELERATION  1000  
@@ -160,7 +160,7 @@
   #define X_BED_SIZE 220
   #define Y_BED_SIZE 220
 
-  #define X_MIN_POS -17
+  #define X_MIN_POS -16
   #define Y_MIN_POS -4
   #define Z_MAX_POS 240
   
